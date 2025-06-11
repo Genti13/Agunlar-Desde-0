@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, input, Output, EventEmitter } from '@angular/core';
+import { Descripcion } from '../models/descripcion.interface';
+
 
 @Component({
   selector: 'app-parrafo',
@@ -7,6 +9,18 @@ import { Component, Input } from '@angular/core';
   styleUrl: './parrafo.css'
 })
 export class Parrafo {
-  @Input() titulo: string = ''; 
-  @Input() parrafo: string = ''; 
+  //titulo = input.required<string>();
+  //parrafo = input.required<string>();
+
+  @Input() titulo: string = '';
+  @Input() parrafo: string = '';
+
+  @Output() mensajeAlerta = new EventEmitter<Descripcion>();
+
+  eventoAlerta() {
+    this.mensajeAlerta.emit({
+      titulo: this.titulo,
+      parrafo: this.parrafo
+    });
+  }
 }

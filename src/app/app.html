@@ -1,3 +1,6 @@
-@for (descripcion of descripciones; track descripciones) {
-  <app-parrafo [titulo]="descripcion.titulo" [parrafo]="descripcion.parrafo"></app-parrafo>
+@for (item of descripciones; track descripciones) {
+  <app-parrafo 
+  (mensajeAlerta)="generarAlerta($event)" 
+  [titulo]="item.titulo" 
+  [parrafo]="item.parrafo"></app-parrafo>
 }
