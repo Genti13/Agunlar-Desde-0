@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Parrafo } from "./parrafo/parrafo";
-import { Descripcion } from './models/descripcion.interface';
+import { Product } from './models/product';
+import { Producto } from "./signal/producto";
+import { Carrito } from "./computed/carrito";
+import { LogManager } from "./effect/log-manager";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Parrafo],
+  imports: [RouterOutlet, Producto, Carrito, LogManager],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -13,16 +15,18 @@ import { Descripcion } from './models/descripcion.interface';
 export class App {
   protected title = 'my-app';
 
-  descripciones:Descripcion[] = [
-    {titulo: "Titulo 1", parrafo: "Este es el texto numero 1"},
-    {titulo: "Titulo 2", parrafo: "Este es el texto numero 2"},
-    {titulo: "Titulo 7", parrafo: "Este es el texto numero 7"},
-  ];
-
-   generarAlerta(descripcion:Descripcion){
-    console.log("ENTRI");
-    
-    alert(`El titulo es: ${descripcion.titulo} y su descripcion dice: ${descripcion.parrafo}`)
+  datosDelProducto1: Product = {
+    name: 'Coca-Cola',
+    exist: true,
+    price: 1250.0,
+    cant: 0
   }
-  
+
+  datosDelProducto2: Product = {
+    name: 'Pepsi',
+    exist: true,
+    price: 1250.0,
+    cant: 0
+  }
+
 }

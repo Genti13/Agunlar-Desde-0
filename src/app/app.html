@@ -1,6 +1,15 @@
-@for (item of descripciones; track descripciones) {
-  <app-parrafo 
-  (mensajeAlerta)="generarAlerta($event)" 
-  [titulo]="item.titulo" 
-  [parrafo]="item.parrafo"></app-parrafo>
-}
+<h1>--- Signals ---</h1>
+<div style="display: flex;gap: 3rem;">
+    <app-producto [initialProduct]="datosDelProducto1"></app-producto>
+    <app-producto [initialProduct]="datosDelProducto2"></app-producto>
+</div>
+
+<h1>--- Computed ---</h1>
+<div>
+    <app-carrito [initialProduct]="datosDelProducto1"></app-carrito>
+</div>
+
+<h1>--- Effects ---</h1>
+<div>
+    <app-log-manager [initialProduct]="datosDelProducto1"></app-log-manager>
+</div>

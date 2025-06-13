@@ -1,0 +1,12 @@
+<div>
+    <h1>{{product().name}}</h1>
+    <p>Hay en Stock: {{product().exist}}</p>
+    <p>Precio: {{product().price}}</p>
+    <p>Cantidad: {{product().cant}}</p>
+    <div style="display: flex;gap: 1rem;">
+        <button (click)="agregarAlCarrito()">Agregar al Carrito</button>
+    </div>
+    <h3>Carrito: </h3>
+    <p>Cant Productos: {{cantProductos()}}</p>
+    <p>Precio Total: {{totalPrice()}}</p>
+</div>
